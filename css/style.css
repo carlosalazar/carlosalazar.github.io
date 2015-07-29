@@ -1,0 +1,326 @@
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+
+:root {
+    --color-bg: #fff;
+    --color-overlay: rgba(0, 0, 0, 0.9);
+    --color-button-bg: rgba(255, 255, 255, 0.15);
+    --color-button-bg-hover: rgba(255, 255, 255, 0.3);
+    --page-gap: 20px;
+    --page-padding-x: 24px;
+    --page-padding-y: 28px;
+    --page-padding-bottom: 32px;
+    --layout-max-width: 1600px;
+    --lightbox-z: 1000;
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.25s ease;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Page layout
+   ========================================================================== */
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    padding-bottom: 5rem;
+}
+
+@media (min-width: 769px) {
+    .page {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--page-gap);
+        padding: var(--page-padding-y) var(--page-padding-x) var(--page-padding-bottom);
+        max-width: var(--layout-max-width);
+        margin-inline: auto;
+    }
+}
+
+/* ==========================================================================
+   Invitation images (figures)
+   ========================================================================== */
+
+/* Primera imagen: principal. Móvil = todo el ancho; escritorio = todo el alto. */
+.invitation-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.invitation-figure__img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+/* Móvil: primera imagen usa todo el ancho horizontal */
+@media (max-width: 768px) {
+    .invitation-figure {
+        width: 100%;
+    }
+
+    .invitation-figure__img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Escritorio: primera imagen usa todo el alto disponible */
+@media (min-width: 769px) {
+    .invitation-figure {
+        flex: 0 0 auto;
+        align-self: flex-start;
+        width: fit-content;
+        height: calc(100vh - 60px);
+        max-width: min(720px, calc((100vw - 68px) / 2));
+    }
+
+    .invitation-figure:not(.invitation-figure--secondary) .invitation-figure__img {
+        width: auto;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: top;
+        vertical-align: top;
+    }
+
+    /* Segunda imagen: mismo ancho que la primera (se fija con JS), alineada arriba con la primera */
+    .invitation-figure--secondary {
+        width: var(--figure-width, auto);
+        min-width: 0;
+        height: auto;
+        margin-top: 0.75rem;
+    }
+
+    .invitation-figure--secondary .invitation-figure__img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        vertical-align: top;
+    }
+}
+
+/* ==========================================================================
+   Botones debajo de la segunda imagen
+   ========================================================================== */
+
+.invitation-actions {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.invitation-actions__row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.invitation-actions__row .invitation-actions__btn {
+    flex: 1 1 50%;
+    width: 50%;
+}
+
+.invitation-actions__btn {
+    display: block;
+    box-sizing: border-box;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.invitation-actions__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    filter: brightness(1.05);
+}
+
+.invitation-actions__btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    filter: brightness(0.98);
+}
+
+/* Amazon: naranja característico */
+.invitation-actions__btn--amazon {
+    background: #ff9900;
+    color: #fff;
+}
+
+.invitation-actions__btn--amazon:hover {
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+}
+
+/* Liverpool México: rosa */
+.invitation-actions__btn--liverpool {
+    background: #e6007e;
+    color: #fff;
+}
+
+.invitation-actions__btn--liverpool:hover {
+    box-shadow: 0 6px 20px rgba(230, 0, 126, 0.4);
+}
+
+/* Confirmar asistencia: azul tipo invitación */
+.invitation-actions__btn--confirm {
+    background: #5b7c99;
+    color: #fff;
+}
+
+.invitation-actions__btn--confirm:hover {
+    box-shadow: 0 6px 20px rgba(91, 124, 153, 0.45);
+}
+
+.invitation-actions__btn--full {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: var(--lightbox-z);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    background: var(--color-overlay);
+    cursor: pointer;
+}
+
+.lightbox__content {
+    position: relative;
+    z-index: 1;
+    max-width: 95vw;
+    max-height: 95vh;
+    overflow: visible;
+    cursor: zoom-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox__content.is-zoomed {
+    cursor: zoom-out;
+    width: 95vw;
+    height: 95vh;
+    overflow: auto;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.lightbox__content.is-zoomed .lightbox__img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+}
+
+.lightbox__img {
+    position: relative;
+    max-width: 95vw;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: width var(--transition-base), height var(--transition-base);
+    pointer-events: auto;
+    display: block;
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: none;
+    background: var(--color-button-bg);
+    color: var(--color-bg);
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background var(--transition-fast);
+}
+
+.lightbox__close:hover {
+    background: var(--color-button-bg-hover);
+}
+
+.lightbox__close:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}

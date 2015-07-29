@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invitación de Karla y Carlos">
+    <title>Karla y Carlos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.webp" type="image/webp">
+</head>
+<body>
+
+    <main class="page">
+        <figure class="invitation-figure">
+            <img
+                src="img/invitation.webp"
+                class="invitation-figure__img"
+                alt="Invitación"
+                width="600"
+                height="800"
+                loading="lazy"
+                decoding="async"
+                title="Clic para ampliar"
+            >
+        </figure>
+
+        <figure class="invitation-figure invitation-figure--secondary">
+            <img
+                src="img/invitacion_2.webp"
+                class="invitation-figure__img"
+                alt="Invitación"
+                width="450"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                title="Clic para ampliar"
+            >
+            <div class="invitation-actions">
+                <div class="invitation-actions__row">
+                    <a href="https://www.amazon.com.mx/registries/gl/guest-view/291PTN978Y6A" class="invitation-actions__btn invitation-actions__btn--amazon" target="_blank" rel="noopener noreferrer">Mesa Regalos: Amazon</a>
+                    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51969855" class="invitation-actions__btn invitation-actions__btn--liverpool" target="_blank" rel="noopener noreferrer">Mesa Regalos: Liverpool</a>
+                </div>
+                <a href="https://wa.me/523320353680?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Karla%20y%20Carlos." class="invitation-actions__btn invitation-actions__btn--full invitation-actions__btn--confirm" target="_blank" rel="noopener noreferrer">Confirmar asistencia</a>
+            </div>
+        </figure>
+    </main>
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-label="Vista ampliada de la invitación"
+    >
+        <button class="lightbox__close" type="button" aria-label="Cerrar vista ampliada">×</button>
+        <div class="lightbox__backdrop"></div>
+        <div class="lightbox__content">
+            <img src="img/invitation.webp" class="lightbox__img" alt="Invitación ampliada" loading="eager">
+        </div>
+    </div>
+
+    <script src="js/lightbox.js" defer></script>
+</body>
+</html>
