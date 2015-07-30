@@ -1,0 +1,52 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+.container .text-muted {
+    margin: 20px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.custom-list li {
+    width: 100%;
+    float: left;
+    list-style-type: none;
+}
+
+.title {
+    font-weight: bold;
+}
+
+#photo {
+    border: solid 2px #000;
+}
+
+li {
+    padding-left: 25px;
+}
+
+li.location {
+    background: url('../icons/ic_location_on_black_18px.svg') no-repeat;
+
+}
+li.email {
+    background: url('../icons/ic_email_black_12px.svg') no-repeat;
+}
+li.phone {
+    background: url('../icons/ic_phone_black_18px.svg') no-repeat;
+}
+li.mobile {
+    background: url('../icons/ic_smartphone_black_18px.svg') no-repeat;
+}
