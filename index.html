@@ -12,26 +12,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                        <img src="img/white_wolf.jpg-c200" id="photo">
+                    <img src="img/white_wolf.jpg-c200" id="photo">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
-                        <h4>Juan Carlos Gonzalez Salazar</h4>
-                        <h4>Developer</h4>
+                    <h4>Juan Carlos Gonzalez Salazar</h4>
+                    <h4>Developer</h4>
                 </div>
                 <div class="col-lg-5 col-md-4 col-sm-6">
                     <p>Contact</p>
                     <ul class="custom-list">
-                        <li class="location">
-                            Ley Federal del Trabajo #5356<br>Zapopan, Jalisco, Mexico.
+                        <li>
+                            <span class="glyphicon glyphicon-envelope"></span> Ley Federal del Trabajo #5356, Zapopan, Jalisco
                         </li>
-                        <li class="email">
-                            <a href="mailto:jcarlos.slz@gmail.com">jcarlos.slz@gmail.com</a>
+                        <li>
+                            <span class="glyphicon glyphicon-map-marker"></span> <a href="mailto:jcarlos.slz@gmail.com">jcarlos.slz@gmail.com</a>
                         </li>
-                        <li class="phone">
-                            (33)36-20-35-89
+                        <li>
+                            <span class="glyphicon glyphicon-earphone"></span> (33)36-20-35-89
                         </li>
-                        <li class="mobile">
-                            (044)33-38-22-87-82
+                        <li>
+                            <span class="glyphicon glyphicon-phone"></span> (044)33-38-22-87-82
                         </li>
                     </ul>
                 </div>
@@ -74,6 +74,7 @@
                     </div>
                     <div class="col-lg-10">
                         <p><b>Sanmina</b> - Intern</p>
+
                         <p></p>
                     </div>
                     <div class="col-lg-10 col-lg-offset-2">
@@ -103,14 +104,7 @@
                     Skills
                 </div>
                 <div class="panel-body">
-                    <ul class="custom-list">
-                        <li>HTML</li>
-                        <li>Javascript</li>
-                        <li>JQuery</li>
-                        <li>AngularJS</li>
-                        <li>CSS</li>
-                        <li>JAVA</li>
-                    </ul>
+                    <ul class="custom-list" id="skills-list"></ul>
                 </div>
             </div>
         </div>
@@ -120,10 +114,7 @@
                     Language
                 </div>
                 <div class="panel-body">
-                    <ul>
-                        <li>Spanish</li>
-                        <li>English</li>
-                    </ul>
+                    <ul id="languages-list"></ul>
                 </div>
             </div>
         </div>
@@ -135,10 +126,7 @@
                     Soft skills
                 </div>
                 <div class="panel-body">
-                    <ul>
-                        <li>Self taught</li>
-                        <li>Team player</li>
-                    </ul>
+                    <ul id="softskills-list"></ul>
                 </div>
             </div>
         </div>
@@ -148,11 +136,7 @@
                     Hobbies
                 </div>
                 <div class="panel-body">
-                    <ul>
-                        <li>Reading (books and tech news)</li>
-                        <li>Listen to music</li>
-                        <li>Movies & Series</li>
-                    </ul>
+                    <ul id="hobbies-list"></ul>
                 </div>
             </div>
         </div>
@@ -162,11 +146,14 @@
     <div class="container">
         <div class="pull-left text-muted"><span class="text-muted">Carlos Salazar</span></div>
         <div class="col-lg-3 pull-right">
-            <div class="text-muted"><a href="https://www.about.me/carlos_salazar">Home Page</a>
+            <div class="text-muted">
+                <a href="https://www.about.me/carlos_salazar">About Me</a>
             </div>
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/builder.js"></script>
 </body>
 </html>
