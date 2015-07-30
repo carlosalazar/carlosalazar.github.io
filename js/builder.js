@@ -32,7 +32,7 @@ $(document).ready(function () {
             view.firstTimeRender();
         },
         firstTimeRender: function () {
-            $('body').fadeIn(500);
+            $('body').fadeIn(1000);
         }
     };
 
