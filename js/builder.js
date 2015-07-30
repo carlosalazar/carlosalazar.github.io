@@ -1,4 +1,4 @@
-$(document).ready( function () {
+$(document).ready(function () {
     var model = {
         skills: ['HTML', 'Javascript', 'JQuery', 'AngularJS', 'CSS', 'Java'],
         languages: ['Spanish', 'English'],
@@ -14,20 +14,25 @@ $(document).ready( function () {
             var hobbieList = $('#hobbies-list');
 
             $.each(controller.getSkills(), function (key, value) {
-                $('<li>' + value +'</li>').appendTo(skillList);
+                $('<li>' + value + '</li>').appendTo(skillList);
             });
 
             $.each(controller.getLanguages(), function (key, value) {
-                $('<li>' + value +'</li>').appendTo(languageList);
+                $('<li>' + value + '</li>').appendTo(languageList);
             });
 
             $.each(controller.getSoftSkills(), function (key, value) {
-                $('<li>' + value +'</li>').appendTo(softSkillList);
+                $('<li>' + value + '</li>').appendTo(softSkillList);
             });
 
             $.each(controller.getHobbies(), function (key, value) {
-                $('<li>' + value +'</li>').appendTo(hobbieList);
+                $('<li>' + value + '</li>').appendTo(hobbieList);
             });
+
+            view.firstTimeRender();
+        },
+        firstTimeRender: function () {
+            $('body').fadeIn(500);
         }
     };
 
