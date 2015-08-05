@@ -1,9 +1,9 @@
 $(document).ready(function () {
     var model = {
-        skills: ['HTML', 'Javascript', 'JQuery', 'AngularJS', 'CSS', 'Java'],
+        skills: ['Android', 'HTML', 'Javascript', 'jQuery', 'AngularJS'],
         languages: ['Spanish', 'English'],
         softskills: ['Self taught', 'Team player'],
-        hobbies: ['Reading (books and tech news)', 'Listen to music', 'Movies & Series']
+        hobbies: ['Reading (books and tech news)', 'Listen to music', 'Movies & series']
     };
 
     var view = {
