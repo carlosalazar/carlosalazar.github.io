@@ -15,6 +15,8 @@
     --lightbox-z: 1000;
     --transition-fast: 0.2s ease;
     --transition-base: 0.25s ease;
+    /* Escritorio solo desde 1025px: celulares en landscape siguen con layout móvil */
+    --breakpoint-desktop: 1025px;
 }
 
 /* ==========================================================================
@@ -36,10 +38,14 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-html,
+html {
+    overflow-x: hidden;
+}
+
 body {
     width: 100%;
     min-height: 100%;
+    max-width: 100vw;
     background-color: var(--color-bg);
     overflow-x: hidden;
 }
@@ -53,14 +59,14 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 100%;
+    max-width: min(100%, 100vw);
     min-width: 0;
     padding: 0.5rem;
     padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
     overflow-x: hidden;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .page {
         flex-direction: row;
         align-items: flex-start;
@@ -97,11 +103,12 @@ body {
     object-fit: contain;
 }
 
-/* Móvil: primera imagen usa todo el ancho; espacio entre figuras; sin salida de pantalla */
-@media (max-width: 768px) {
+/* Móvil y tablets en portrait/landscape: una columna, sin salida de pantalla */
+@media (max-width: 1024px) {
     .invitation-figure {
         width: 100%;
         min-width: 0;
+        max-width: 100%;
     }
 
     .invitation-figure--secondary {
@@ -116,8 +123,8 @@ body {
     }
 }
 
-/* Escritorio: primera imagen usa todo el alto disponible */
-@media (min-width: 769px) {
+/* Escritorio: dos columnas, primera imagen usa todo el alto disponible */
+@media (min-width: 1025px) {
     .invitation-figure {
         flex: 0 0 auto;
         align-self: flex-start;
@@ -191,16 +198,17 @@ body {
     line-height: 1.3;
     white-space: nowrap;
     max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-@media (max-width: 768px) {
+/* Móvil y tablet: texto que puede partir línea, botones táctiles, sin desborde */
+@media (max-width: 1024px) {
     .invitation-actions__hint {
         white-space: normal;
+        overflow-wrap: break-word;
     }
-}
 
-/* Móvil: zona táctil y evitar zoom en inputs (solo hay enlaces) */
-@media (max-width: 768px) {
     .invitation-actions__row .invitation-actions__btn {
         min-height: 48px;
         display: flex;

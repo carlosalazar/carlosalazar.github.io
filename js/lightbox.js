@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    const BREAKPOINT_DESKTOP = 769;
+    const BREAKPOINT_DESKTOP = 1025;
 
     const lightbox = document.getElementById('lightbox');
     const lightboxContent = document.querySelector('.lightbox__content');
